@@ -6,6 +6,7 @@ class StudentForm(forms.Form):
     username = forms.CharField(max_length=100)
     email = forms.EmailField()
     subject = forms.CharField(max_length=100)
+    phone_number = forms.CharField(max_length=100)
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)
     re_password = forms.CharField(max_length=100, widget=forms.PasswordInput)
 
@@ -17,6 +18,23 @@ class StudentForm(forms.Form):
     #         raise ValidationError("bir xil emas")
 
 
+class StudentEditForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    subject = forms.CharField(max_length=100)
+    phone_number = forms.CharField(max_length=100)
+
+
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=100)
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+
+
+class ResetPasswordForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    email = forms.EmailField()
+
+
+class NewPasswordForm(forms.Form):
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+    re_password = forms.CharField(max_length=100, widget=forms.PasswordInput)

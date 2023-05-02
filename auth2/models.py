@@ -15,3 +15,10 @@ class Student(AbstractUser):
         if not self.pk:
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
+
+
+class Token(models.Model):
+    token = models.CharField(max_length=100)
+    is_delete = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Student, on_delete=models.CASCADE)

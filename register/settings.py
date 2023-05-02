@@ -122,3 +122,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'auth2.Student'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
