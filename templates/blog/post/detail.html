@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} post list{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="offset-2 col-8">
+            <h1>Post List</h1>
+            <ul>
+                <h1>{{ post.title }}</h1><br>
+                <p>{{ post.body }}</p>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

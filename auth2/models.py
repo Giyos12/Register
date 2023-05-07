@@ -22,3 +22,8 @@ class Token(models.Model):
     is_delete = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+# student = Student.objects.get(id=1)
+# posts = Post.objects.filter(author=student)
+#
+# posts = Student.blog_post.all()

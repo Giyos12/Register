@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # my apps
     "auth2",
+    "blog",
 ]
 
 MIDDLEWARE = [
