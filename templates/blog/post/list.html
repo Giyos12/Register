@@ -1,17 +1,16 @@
-{% extends 'base.html' %}
-
-{% block title %} post list{% endblock %}
-
+{% extends "base.html" %}
+{% block title %}My Blog{% endblock %}
 {% block content %}
-    <div class="row">
-        <div class="offset-2 col-8">
-            <h1>Post List</h1>
-            <ul>
-                {% for post in posts %}
-                    <a href="{% url 'blog:post_detail'  post.id %}"><h1>{{ post.title }}</h1></a><br>
-                    <p>{{ post.body }}</p>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    <h1>My Blog</h1>
+    {% for post in posts %}
+        <h2>
+            <a href="{% url 'blog:post_detail' post.id %}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p class="date">
+            Published {{ post.publish }} by {{ post.author }}
+        </p>
+        {{ post.body|truncatewords:30|linebreaks }}
+    {% endfor %}
 {% endblock %}
