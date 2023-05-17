@@ -8,10 +8,11 @@
             <h1>Post List</h1>
             <ul>
                 {% for post in posts %}
-                    <a href="{% url 'blog:post_detail'  post.id %}"><h1>{{ post.title }}</h1></a><br>
+                    <a href="{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a><br>
                     <p>{{ post.body }}</p>
                 {% endfor %}
             </ul>
+            {% include 'pagination.html' %}
         </div>
     </div>
 {% endblock %}

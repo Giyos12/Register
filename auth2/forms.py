@@ -38,3 +38,11 @@ class ResetPasswordForm(forms.Form):
 class NewPasswordForm(forms.Form):
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)
     re_password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+
+
+class EmailPostForm(forms.Form):
+    name = forms.CharField(max_length=200)
+    email = forms.EmailField()
+    to = forms.EmailField()
+    comments = forms.CharField(required=False, widget=forms.Textarea)
+
