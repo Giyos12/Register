@@ -10,11 +10,31 @@
                 <h1>{{ post.title }}</h1><br>
                 <p>{{ post.body }}</p>
             </ul>
-            <p>
-                <a href="{% url "blog:post_share" post.id %}">
-                    Share this post
-                </a>
-            </p>
-        </div>
+            {% with comments.count as total_comments %}
+                <h2>
+                    {{ total_comments }} comment{{ total_comments|pluralize }}
+                </h2>
+            {% endwith %}
+            {% for comment in comments %}
+                <p class="info">
+                    Comment {{ forloop.counter }} by {{ comment.name }}
+                    {{ comment.created }}
+                </p>
+                {{ comment.body|linebreaks }}
+                </div>
+            {% empty %}
+                <p>There are no comments.</p>
+            {% endfor %}
+        <form action="{% url 'blog:comment' post.id %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">save</button>
+        </form>
+        <p>
+            <a href="{% url "blog:post_share" post.id %}">
+                Share this post
+            </a>
+        </p>
+    </div>
     </div>
 {% endblock %}
